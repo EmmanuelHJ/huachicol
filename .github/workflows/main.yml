@@ -1,0 +1,64 @@
+name: Deploy to cPanel via SSH
+
+on:
+  push:
+    branches:
+      #- main  # Ejecutar el flujo cada vez que se haga un push a la rama "main"
+      - development  # También ejecutar en la rama "dev"
+      
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Obtiene el código más reciente del repositorio
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts  # Agrega el host a los hosts conocidos
+
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      - name: Deploy to cPanel server via rsync
+        run: |
+          DIRECTORY=""
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            DIRECTORY="/home/mccimx/public_html/huachicol/"
+          elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
+            DIRECTORY="/home/mccimx/public_html/test/huachicol/"
+          fi
+          rsync -avz --rsync-path="sudo rsync" ./ $SSH_USER@$SSH_HOST:$DIRECTORY  # Sincroniza el código con la carpeta en el servidor
+
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      - name: Change ownership of the deployed files
+        run: |
+          DIRECTORY=""
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            DIRECTORY="/home/mccimx/public_html/huachicol/"
+          elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
+            DIRECTORY="/home/mccimx/public_html/test/huachicol/"
+          fi
+          ssh $SSH_USER@$SSH_HOST "sudo chown -R mccimx:mccimx $DIRECTORY"  # Cambia el propietario de la carpeta y los archivos
+
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+      
+      - name: Purge Cloudflare cache for specific URL and directory
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: |
+          curl -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{
+              "files": ["https://contralacorrupcion.mx/huachicol/"]
+            }'
