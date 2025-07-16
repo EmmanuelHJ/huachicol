@@ -1,0 +1,32 @@
+/*Colors*/
+/*Colors*/
+/*Fonts*/
+/*Fonts*/
+footer.footer-main {
+  background-color: #000c2d;
+  font-family: proxima-nova, sans-serif;
+  color: #fff;
+}
+
+footer.footer-main svg {
+  fill: #f72732;
+  height: 1rem;
+}
+
+footer.footer-main .site-map {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+footer.footer-main .about {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.3em;
+  margin-top: 1rem;
+}
+
+footer.footer-main .site-name,
+footer.footer-main .copyright {
+  font-size: 8px;
+  font-weight: normal;
+}/*# sourceMappingURL=footer.css.map */

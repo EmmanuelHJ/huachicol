@@ -1,0 +1,373 @@
+@use "../variables/variables" as *;
+@use "../fonts/fonts" as *;
+
+nav.menu-nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1024;
+    font-family: $proxima;
+    font-size: 14px;
+    text-transform: uppercase;
+    background-color: $blue-menu;
+    color: $white-main;
+    /* Icon 1 */
+}
+
+nav.menu-nav a {
+    color: $white-main;
+}
+
+nav.menu-nav a:hover {
+    color: $red-main;
+}
+
+nav.menu-nav svg {
+    fill: #000;
+    height: 1rem;
+}
+
+nav.menu-nav .animated-icon1 {
+    width: 20px;
+    height: 15px;
+    position: relative;
+    margin: 0px;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+nav.menu-nav .animated-icon1 span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    background: $red-main;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+}
+
+nav.menu-nav .animated-icon1 span:nth-child(1) {
+    top: 1px;
+}
+
+nav.menu-nav .animated-icon1 span:nth-child(2) {
+    top: 7px;
+    width: 75%;
+}
+
+nav.menu-nav .animated-icon1 span:nth-child(3) {
+    top: 13px;
+    width: 50%;
+}
+
+nav.menu-nav .animated-icon1.open span:nth-child(1) {
+    top: 7px;
+    width: 100%;
+    transform: rotate(135deg);
+}
+
+nav.menu-nav .animated-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+nav.menu-nav .animated-icon1.open span:nth-child(3) {
+    top: 7px;
+    width: 100%;
+    transform: rotate(-135deg);
+}
+
+nav.menu-nav .navbar .dropdown-menu li {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0 !important;
+}
+
+nav.menu-nav .navbar-toggler {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    color: $white-main;
+}
+
+nav.menu-nav .btn-dona {
+    background: transparent;
+    color: $white-main;
+    border: 1px solid $red-main;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+nav.menu-nav .second__menu,
+nav.menu-nav .second-dona {
+    display: none;
+}
+
+nav.home-nav {
+    background-color: transparent;
+    box-shadow: inset 0px 50px 20px -15px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 767px) {
+    nav.home-nav {
+        box-shadow: inset 0px 40px 20px -15px rgba(0, 0, 0, 0.85);
+    }
+}
+
+.navbar-collapse.collapse.show {
+    min-height: calc(100vh - 68px);
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse.collapse.show {
+        min-height: calc(100vh - 44px);
+    }
+}
+
+.nav-open {
+    position: fixed !important;
+    overflow-y: auto;
+    /*
+    box-shadow: inset 0px 0px 225px 200px #000 !important;
+    @media (max-width: 767px) {
+        box-shadow: inset 0px 0px 225px 170px #000 !important;
+    }
+    */
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.dropdown-menu {
+    border: none;
+}
+
+.navbar .dropdown-menu {
+    max-width: 100%;
+}
+
+.navbar-collapse {
+    position: relative;
+    flex-grow: 0;
+}
+
+.navbar-collapse li {
+    font-family: $proxima;
+    font-weight: 800;
+    text-transform: lowercase;
+    line-height: 1;
+}
+
+.navbar-collapse li span {
+    color: $red-main;
+}
+
+.navbar-collapse ul li {
+    font-size: 22px;
+}
+
+.navbar-collapse li a {
+    padding: 8px 0 !important;
+    border-bottom: 0.5px solid #fff;
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse ul li {
+        font-size: 16px;
+    }
+}
+
+.collapse:not(.show) {
+    display: none !important;
+}
+
+ul li ul li.menu-item-has-children>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+}
+
+ul li ul li.menu-item-has-children:hover>.dropdown-menu {
+    display: block;
+}
+
+ul li ul li.menu-item-has-children:hover>a:after {
+    border-left-color: $gray-main;
+}
+
+ul li ul li.menu-item-has-children>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 7px 0 7px 7px;
+    border-left-color: $gray-main;
+    margin-top: 5px;
+    margin-right: -5px;
+}
+
+.btn-default:not([disabled]):not(.disabled).active,
+.btn-default:not([disabled]):not(.disabled):active {
+    background-color: $red-main;
+    color: $white-main;
+}
+
+.show>.btn-default.dropdown-toggle {
+    background-color: $red-main;
+    color: $white-main;
+}
+
+.navbar .dropdown-menu a {
+    font-size: 14px;
+    line-height: 1;
+    font-weight: bold;
+    text-overflow: ellipsis;
+}
+
+.menu-nav {
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.menu-nav .btn-search {
+    width: 45px;
+    height: 45px;
+    background-color: $white-main;
+    color: $black-secondary;
+    border-radius: 50px;
+    box-shadow: none;
+}
+
+@media (max-width: 767px) {
+    .menu-nav .btn-search {
+        width: 30px;
+        height: 30px;
+        margin: auto;
+    }
+}
+
+.navbar-second {
+    transition: all 0.5s ease-in;
+    position: fixed !important;
+    box-shadow: none !important;
+    background-color: $blue-menu !important;
+}
+
+.navbar-second .main__menu {
+    display: none !important;
+}
+
+.navbar-second .second__menu {
+    display: block !important;
+}
+
+.navbar-second .second__menu .share i {
+    color: $red-main;
+}
+
+.navbar-second .second-logo,
+.navbar-second .second-dona {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .navbar-second {
+        top: unset !important;
+        bottom: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-second .navbar-logo {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .navbar-second .second-logo,
+    .navbar-second .second-dona {
+        display: block !important;
+    }
+}
+
+
+
+nav.menu-nav {
+    position: unset;
+    max-width: 100%;
+    width: unset;
+    background-color: transparent;
+    color: #000;
+
+    &.nav-open {
+        background-color: $gray-aifa !important;
+        box-shadow: none !important;
+    }
+
+    a {
+        color: #000;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .navbar-logo {
+            background-color: #fff;
+        }
+    }
+
+    .navbar-toggler {
+        color: #000;
+    }
+
+    .animated-icon1 {
+        span {
+            background-color: $green-cons;
+        }
+    }
+
+    .btn-dona {
+        color: #000;
+        border-color: #000;
+    }
+
+    #main-menu {
+        li {
+            a {
+                color: #000;
+                border-bottom: 1px solid #000;
+
+                span {
+                    color: $green-cons;
+                }
+            }
+        }
+    }
+
+    .btn-search {
+        background-color: #000;
+
+        svg {
+            fill: #fff;
+            height: 1rem;
+        }
+    }
+}
+
+.navbar-collapse {
+    li {
+        span {
+            color: $green-cons;
+        }
+    }
+}
