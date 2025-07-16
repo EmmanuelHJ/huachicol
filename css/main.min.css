@@ -1,0 +1,263 @@
+@import url("https://use.typekit.net/pnd7qhn.css");
+
+:root {
+    --white-cons: #7C9885;
+    --gray-aifa: #e0e0e0;
+    --gray-aifa-2: #033F63;
+    --black-aifa: #033F63;
+    --purple-aifa: #28666E;
+    --red-cons: #7C9885;
+    --bolder: 900
+}
+
+body {
+    font-family: var(--proxima);
+    font-size: 1.25rem;
+    color: var(--gray-aifa-2);
+    line-height: 1.6;
+    background-color: var(--gray-aifa)
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 1.125rem
+    }
+}
+
+body strong {
+    font-weight: bold
+}
+
+body .custom-link {
+    color: var(--gray-aifa-2);
+    text-decoration: underline;
+    font-weight: bold;
+    text-decoration-color: var(--green-cons)
+}
+
+body a {
+    color: unset
+}
+
+body a:hover {
+    color: unset
+}
+
+nav.menu-nav {
+    background-color: transparent;
+    color: #000
+}
+
+nav.menu-nav.nav-open {
+    background-color: var(--gray-aifa) !important;
+    box-shadow: none !important
+}
+
+nav.menu-nav a {
+    color: #000
+}
+
+nav.menu-nav a:hover {
+    color: var(--blue-mcci)
+}
+
+@media (max-width: 767px) {
+    nav.menu-nav .navbar-logo {
+        background-color: #fff
+    }
+}
+
+nav.menu-nav .navbar-toggler {
+    color: #000
+}
+
+nav.menu-nav .animated-icon1 span {
+    background-color: var(--red-cons)
+}
+
+nav.menu-nav .btn-dona {
+    color: #000;
+    border-color: #000
+}
+
+nav.menu-nav #main-menu li a {
+    color: #000;
+    border-bottom: 1px solid #000
+}
+
+nav.menu-nav #main-menu li a span {
+    color: var(--red-cons)
+}
+
+.menu-nav .btn-search {
+    color: #fff;
+    background-color: #000
+}
+
+.navbar-collapse li span {
+    color: var(--green-cons)
+}
+
+main .figure-caption {
+    font-family: var(--proxima-extra);
+    font-size: .8125rem;
+    line-height: 1.2;
+    color: var(--white-cons)
+}
+
+main .figure-caption.black-text {
+    color: var(--gray-aifa-2) !important
+}
+
+main .title {
+    font-family: var(--proxima-extra);
+    font-size: 3rem;
+    font-weight: var(--bolder);
+    line-height: 1;
+    letter-spacing: 0px;
+    text-transform: none;
+    color: var(--white-cons)
+}
+
+@media (max-width: 767px) {
+    main .title {
+        font-size: 2.5rem
+    }
+}
+
+main .title span {
+    color: #fff
+}
+
+main .summary {
+    font: normal normal normal 1.25rem/1.375rem var(--proxima-extra);
+    text-align: center;
+    letter-spacing: 0px;
+    color: var(--gray-aifa)
+}
+
+main .mcci-text {
+    color: var(--gray-aifa);
+    font-size: 1rem;
+    letter-spacing: 0px
+}
+
+main .share {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gray-aifa)
+}
+
+main .author {
+    font-size: 1.25rem;
+    font-weight: var(--bolder);
+    line-height: 1.375rem;
+    letter-spacing: 0px;
+    text-align: center;
+    color: var(--gray-aifa-2)
+}
+
+main .author::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--red-cons)
+}
+
+main .author::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 7px;
+    left: 50%;
+    transform: translate(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: var(--red-cons)
+}
+
+main hr {
+    border-top: solid 1px #fff
+}
+
+main .text-separator {
+    font-size: .75rem;
+    text-align: center
+}
+
+main .title-section-cons {
+    font-family: var(--proxima-extra);
+    font-size: 4rem;
+    font-weight: var(--bolder);
+    text-align: center;
+    text-transform: none
+}
+
+main .title-section-cons span {
+    font-size: .75rem;
+    color: var(--red-cons)
+}
+
+@media (max-width: 767px) {
+    main .title-section-cons {
+        font-size: 2.25rem
+    }
+}
+
+main .histories-container {
+    background-color: var(--purple-aifa);
+    color: var(--gray-aifa)
+}
+
+main .histories-container .title-post {
+    font-size: 1.25rem;
+    font-weight: var(--bolder);
+    line-height: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: none;
+    word-wrap: break-word
+}
+
+@media (max-width: 767px) {
+    main .histories-container .title-post {
+        font-size: 2rem;
+        line-height: 2.125rem
+    }
+}
+
+main .credits p {
+    text-align: center
+}
+
+footer.footer-main {
+    background-color: var(--gray-aifa-2)
+}
+
+.background-half {
+    background: var(--gray-aifa);
+    background: linear-gradient(180deg, var(--gray-aifa) 0%, var(--gray-aifa) 20%, var(--black-aifa) 20%)
+}
+
+.scroll-cons::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--cream-cons);
+    border-radius: 0px
+}
+
+.scroll-cons::-webkit-scrollbar {
+    width: 12px;
+    background-color: var(--gray-aifa-2)
+}
+
+.scroll-cons::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--gray-aifa-2)
+}
