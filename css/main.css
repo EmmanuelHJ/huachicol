@@ -310,7 +310,7 @@ nav.menu-nav a:hover {
 }
 @media (max-width: 767px) {
   nav.menu-nav .navbar-logo {
-    background-color: #fff;
+    background-color: transparent;
   }
 }
 nav.menu-nav .navbar-toggler {
