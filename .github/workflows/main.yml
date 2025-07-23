@@ -3,7 +3,7 @@ name: Deploy to cPanel via SSH
 on:
   push:
     branches:
-      #- main  # Ejecutar el flujo cada vez que se haga un push a la rama "main"
+      - main  # Ejecutar el flujo cada vez que se haga un push a la rama "main"
       - development  # También ejecutar en la rama "dev"
       
 jobs:
@@ -29,9 +29,9 @@ jobs:
         run: |
           DIRECTORY=""
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            DIRECTORY="/home/mccimx/public_html/huachicol/"
+            DIRECTORY="/home/mccimx/public_html/redes-de-huachicol-en-la-4t/"
           elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
-            DIRECTORY="/home/mccimx/public_html/test/huachicol/"
+            DIRECTORY="/home/mccimx/public_html/test/huachicol/" 
           fi
           rsync -avz --rsync-path="sudo rsync" ./ $SSH_USER@$SSH_HOST:$DIRECTORY  # Sincroniza el código con la carpeta en el servidor
 
@@ -43,7 +43,7 @@ jobs:
         run: |
           DIRECTORY=""
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            DIRECTORY="/home/mccimx/public_html/huachicol/"
+            DIRECTORY="/home/mccimx/public_html/redes-de-huachicol-en-la-4t/"
           elif [ "${{ github.ref }}" == "refs/heads/development" ]; then
             DIRECTORY="/home/mccimx/public_html/test/huachicol/"
           fi
@@ -60,5 +60,5 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.CLOUDFLARE_API_TOKEN }}" \
             -H "Content-Type: application/json" \
             --data '{
-              "files": ["https://contralacorrupcion.mx/huachicol/"]
+              "files": ["https://contralacorrupcion.mx/redes-de-huachicol-en-la-4t/"]
             }'
